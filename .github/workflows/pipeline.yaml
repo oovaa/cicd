@@ -14,22 +14,18 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       
-      - name: Build Docker Image
+      - name: Build and Test
         working-directory: ./coursera-spring-hello-world
-        run: docker build -t spring-boot-app:latest .
-      
-      - name: Run Container in Background
         run: |
+          # Build image
+          docker build -t spring-boot-app:latest .
+          
+          # Run and test in one go
           docker run -d -p 8080:8080 --name spring-app spring-boot-app:latest
-          # Wait for Spring Boot to start up
-          sleep 15
-      
-      - name: Test with curl
-        run: |
-          echo "Testing endpoint..."
-          curl -f http://localhost:8080/greeting || exit 1
-          echo -e "\nCurl test successful!"
-      
-      - name: Cleanup Docker Container
-        if: always()
-        run: docker rm -f spring-app
+          sleep 20
+          
+          echo "Testing API..."
+          curl -f http://localhost:8080/greeting
+          
+          # Cleanup
+          docker rm -f spring-app
