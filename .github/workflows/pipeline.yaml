@@ -20,3 +20,5 @@ jobs:
       - name: Build Docker Image
         working-directory: ./coursera-spring-hello-world
         run: docker build -t sprint-boot-app:latest .
+      - name: curling 
+        run: curl localhost:80/greeting 
