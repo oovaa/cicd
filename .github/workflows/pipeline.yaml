@@ -18,14 +18,11 @@ jobs:
         working-directory: ./coursera-spring-hello-world
         run: |
           # Build image
-          docker build -t spring-boot-app:latest .
-          
-          # Run and test in one go
-          docker run -d -p 8080:8080 --name spring-app spring-boot-app:latest
+          docker compose up
           sleep 20
           
           echo "Testing API..."
           curl -f http://localhost:8080/greeting
           
           # Cleanup
-          docker rm -f spring-app
+          docker compose down
