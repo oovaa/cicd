@@ -18,4 +18,5 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Build Docker Image
+        working-directory: ./coursera-spring-hello-world
         run: docker build -t sprint-boot-app:latest .
