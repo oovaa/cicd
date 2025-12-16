@@ -4,18 +4,18 @@ name: CI/CD Pipeline
 
 on: 
   push:
-    branshes:
+    branches:
       - main
   workflow_dispatch:
 
 
 jobs:
   build:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
 
 
     steps:
       - name: Check out code
-        uses: actions/checout@v4
+        uses: actions/checkout@v4
       - name: Build Docker Image
         run: docker build -t sprint-boot-app:latest .
