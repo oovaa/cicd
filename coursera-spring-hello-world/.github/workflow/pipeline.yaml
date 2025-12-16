@@ -1,0 +1,21 @@
+name: CI/CD Pipeline
+
+
+
+on: 
+  push:
+    branshes:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubunut-latest
+
+
+    steps:
+      - name: Check out code
+        uses: actions/checout@v4
+      - name: Build Docker Image
+        run: docker build -t sprint-boot-app:latest .
