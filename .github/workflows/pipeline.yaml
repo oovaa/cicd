@@ -22,7 +22,8 @@ jobs:
           sleep 20
           
           echo "Testing API..."
-          curl -f http://localhost:8080/greeting
+          curl -f http://localhost:80/greeting
+          
           
           # Cleanup
           docker compose down
