@@ -41,5 +41,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
-            ls -al        
+            docker ps
+            dcker rm -f ciii
+            docker pull registry.digitalocean.com/oovaa/cicd
+            docker run -d -p 8989:80 --name ciii registry.digitalocean.com/oovaa/cicd:latest         
