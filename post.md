@@ -10,3 +10,5 @@ I've learned what is the DOCR (container registry is like Docker hub but it is m
 Then used GitHub actions to update the Docker image there based on my latest changes
 
 And configured GitHub actions with ssh to log into my VPS and run the needed commands to update and redeploy the service
+
+finally 
