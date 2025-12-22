@@ -32,3 +32,14 @@ jobs:
           context: ./coursera-spring-hello-world
           push: true
           tags: registry.digitalocean.com/oovaa/cicd:latest 
+
+      - name: Multiple commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            ls -al        
