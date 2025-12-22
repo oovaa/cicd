@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: DOCR  # <--- ADD THIS LINE (Match your environment name exactly)
 
     steps:
       - name: Check out code
