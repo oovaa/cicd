@@ -42,6 +42,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker ps
-            dcker rm -f ciii
+            docker rm -f ciii | true
             docker pull registry.digitalocean.com/oovaa/cicd
             docker run -d -p 8989:80 --name ciii registry.digitalocean.com/oovaa/cicd:latest         
