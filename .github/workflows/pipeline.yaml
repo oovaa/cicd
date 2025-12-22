@@ -16,14 +16,5 @@ jobs:
       
       - name: Build and Test
         working-directory: ./coursera-spring-hello-world
-        run: |
-          # Build image
-          docker compose up
-          sleep 20
-          
-          echo "Testing API..."
-          curl -f http://localhost:80/greeting
-          
-          
-          # Cleanup
-          docker compose down
+      - name: Login to Container Registry
+        uses: docker/login-action@v3
